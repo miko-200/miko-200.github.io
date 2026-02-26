@@ -1,0 +1,764 @@
+<html>
+    <head>
+    </head>
+    <body>
+        <div class="Header"
+            style="background-color: rgb(203, 71, 41);
+                    color: rgb(0, 0, 0);
+                    font-size: 30px;
+                    text-align: center;
+                    width: 1503px;
+                    height: 190px;">
+            <h2 style="float: left; font-size: 30px; margin-right: 0;">rebirth price: <span id="rebirthCena"> 100000 </span><span> (<span id="nextMultiplier">2.5</span>X multiplier)</span> 
+            <span style="margin-left: 50px; font-size: 50px;">Cookie Clicker</span><span>
+            <span style="float: right; font-size: 30px; margin-left: 50px;">Rebirths: <span id="currentRebirth">0</span></span>
+            <br>
+            <input type="image" id="rebirth" src="../Images/rebirth.png" style="width: 75px; height: 75px; float: left; margin-right: 0px;">
+            <span style="margin-left: 1050px;">rebirth multiplier: </span><span id="rebirthMultiplier">1</span><span>X</span> </h2>
+           
+        </div>
+        <div
+            style="background-color: rgb(203, 71, 41);
+                    width: 400px;
+                    min-height: 1000px;
+                    height: auto;
+                    float: inline-start;">
+            <span><a href="../index.html"><img class="card" src="../Images/Home.png" style="width: 100; height: 100; float: left;"></a></span><br><br>
+            <h1>cookies: <span id="currentCookies">0</span></h1>
+            <h2>cursor price: <span id="cursorCena"> 5 </span><span> (0.5 cookies per second)</span> <br>
+            <input type="image" id="cursor" src="../Images/cursor.png" style="width: 100px; height:80px"> </h2>  
+            <h2>babushka price: <span id="babushkaCena">10 </span><span> (1.5 cookies per second)</span><br> 
+            <input type="image" id="babushka" src="../Images/babushka.png" style="width: 100px; height:100px"></h2>
+            <h2>farm price: <span id="farmCena"> 100 </span><span> (5 cookies per second)</span> <br>
+            <input type="image" id="farm" src="../Images/farm.png" style="width: 100px; height:100px"> </h2>
+            <h2>mine price: <span id="mineCena"> 1000 </span><span> (25 cookies per second)</span> <br> 
+            <input type="image" id="mine" src="../Images/mine.png" style="width: 100px; height:100px"> </h2>
+            <h2>factory price: <span id="factoryCena"> 10000 </span><span> (100 cookies per second)</span> <br> 
+            <input type="image" id="factory" src="../Images/factory.png" style="width: 100px; height: 100px;"> </h2>    
+        </div>
+        <div class="current"
+            style="background-color: rgb(203, 71, 41);
+                    width: 450px;
+                    min-height: 1000px;
+                    height: auto;
+                    float: inline-end;">  
+            <h2>CPS: <span id="CPS">0</span><span style="margin-left: 80px;">click upgrades: </span><span id="currentClickUpgrades">0</span> </h2>
+            <h2>speed: <span id="Speed"> 1 </span><span style="margin-left: 90px;">speed upgrades: </span><span id="currentSpeedUpgrades">0</span> </h2>  
+            <h2>cursors: <span id="currentCursor"> 0 </span><span style="margin-left: 80px;">cursor upgrades: </span><span id="currentCursorUpgrades">0</span> </h2>
+            <h2>babushkas: <span id="currentBabushka"> 0 </span><span style="margin-left: 50px;">babushka upgrades: </span><span id="currentBabushkaUpgrades">0</span> </h2>
+            <h2>farms: <span id="currentFarm"> 0 </span><span style="margin-left: 90px;">farm upgrades: </span><span id="currentFarmUpgrades">0</span> </h2>
+            <h2>mines: <span id="currentMine"> 0 </span><span style="margin-left: 90px;">mine upgrades: </span><span id="currentMineUpgrades">0</span> </h2>
+            <h2>factories: <span id="currentFactory"> 0 </span><span style="margin-left: 65px;">factory upgrades: </span><span id="currentFactoryUpgrades">0</span> </h2>
+
+            <br>
+
+            <h2>click upgrade multiplier: <span id="currentClickStacks"> 1 </span> </h2>
+            <h2>cursor upgrade multiplier: <span id="currentCursorStacks"> 1 </span> </h2>
+            <h2>babushka upgrade multiplier: <span id="currentBabushkaStacks"> 1 </span> </h2>
+            <h2>farm upgrade multiplier: <span id="currentFarmStacks"> 1 </span> </h2>
+            <h2>mine upgrade multiplier: <span id="currentMineStacks"> 1 </span> </h2>
+            <h2>factory upgrade multiplier: <span id="currentFactoryStacks"> 1 </span> </h2>
+        </div>      
+        </div>      
+            <div class="cookie" 
+                style="background-color: burlywood;
+                        min-height: 1000;
+                        min-width: fit-content;
+                        float: inline-start;
+                        margin-left: 0px;
+                        text-align: left;">
+                <input type="image" id="button" src="../Images/cookieee.png" style="width: 653px; height: 653px">
+            </div>
+        <div class="Footer" 
+        style="background-color: rgb(203, 71, 41);
+                float: inline-start;
+                width: 1503px;
+                height: 350px;">
+            <h2>
+            <span>upgrade click price: <span id="upgradeClickCena"> 1000</span><span>
+            <span style="margin-left:  50px;">upgrade cursor price: <span id="upgradeCursorCena"> 100</span><span>
+            <span style="margin-left:  50px;">upgrade babushka price: <span id="upgradeBabushkaCena"> 200</span><span>
+            <span style="margin-left:  50px;">upgrade farm price: <span id="upgradeFarmCena"> 1000</span><span>
+            <span style="margin-left:  50px;"> upgrade mine price: <span id="upgradeMineCena"> 5000 </span> <span>
+            </h2>
+
+            <span><input type="image" id="upgrade_click" src="../Images/click.png" style="width: 75px; height:75px"></span>
+            <span style="margin-left: 130px;"><input type="image" id="upgrade_cursor" src="../Images/cursor.png" style="width: 75px; height:75px"></span>
+            <span style="margin-left: 130px;"><input type="image" id="upgrade_babushka" src="../Images/babushka.png" style="width: 75px; height:75px"></span>    
+            <span style="margin-left: 160px;"><input type="image" id="upgrade_farm" src="../Images/farm.png" style="width: 75px; height:75px"></span>
+            <span style="margin-left: 130px;"><input type="image" id="upgrade_mine" src="../Images/mine.png" style="width: 75px; height:75px"></span>
+
+            <br>
+            <h2><span>upgrade speed price: <span id="upgradeSpeedCena"> 10000</span><span>
+            <span style="margin-left:  30px;"> upgrade factory price: <span id="upgradeFactoryCena"> 50000 </span> <span>
+            </h2>
+            
+            <br>
+            <span><input type="image" id="upgrade_speed" src="../Images/speed.png" style="width: 100px; height: 75px;"></span>
+            <span style="margin-left: 120px;"><input type="image" id="upgrade_factory" src="../Images/factory.png" style="width: 75px; height: 75px;"></span>
+        </div>
+            
+    </body>
+</html>
+<script>
+    var current_cookies = 0;
+    var gains = 0;
+    var interval = 1000;
+    var intervalID = null;
+    var count_cookies = 0;
+    var button = document.getElementById('button');
+    var currentCookies = document.getElementById('currentCookies');
+
+
+
+    var current_rebirth = 0;
+    var rebirth_multiplier = 1;
+    var next_multiplier = 2.5;
+    var rebirth_cena = 100000;
+    var currentRebirth = document.getElementById('currentRebirth');
+    var rebirthMultiplier = document.getElementById('rebirthMultiplier');
+    var nextMultiplier = document.getElementById('nextMultiplier');
+    var rebirthCena = document.getElementById('rebirthCena');
+    var rebirth = document.getElementById('rebirth')
+
+
+    var speed = 1;
+    var Speed = document.getElementById('Speed');
+
+    var current_speed_upgrades = 0;
+    var upgrade_speed_cena = 10000;
+    var currentSpeedUpgrades = document.getElementById('currentSpeedUpgrades')
+    var upgrade_speed = document.getElementById('upgrade_speed');
+    var upgradeSpeedCena = document.getElementById('upgradeSpeedCena');
+    var upgradeSpeed = document.getElementById('upgradeSpeed');
+
+    var cps = 0;
+    var CPS = document.getElementById('CPS');
+
+    var count_click = 1;
+    var upgrade_click_stacks = 1;
+    var current_click_upgrades = 0;
+    var upgrade_click_cena = 1000;
+    var currentClickStacks = document.getElementById('currentClickStacks');
+    var currentClickUpgrades = document.getElementById('currentClickUpgrades');
+    var upgrade_click = document.getElementById('upgrade_click');
+    var upgradeClickCena = document.getElementById('upgradeClickCena');
+
+
+
+    var current_cursor = 0;
+    var cursor_cena = 5;
+    var cursorCena = document.getElementById('cursorCena');
+    var currentCursor = document.getElementById('currentCursor');
+    var cursor = document.getElementById('cursor');
+
+    var count_cursor = 1;
+    var upgrade_cursor_stacks = 1;
+    var current_cursor_upgrades = 0;
+    var upgrade_cursor_cena = 100;
+    var currentCursorStacks = document.getElementById('currentCursorStacks');
+    var currentCursorUpgrades = document.getElementById('currentCursorUpgrades');
+    var upgrade_cursor = document.getElementById('upgrade_cursor');
+    var upgradeCursorCena = document.getElementById('upgradeCursorCena');
+
+
+
+    var current_babushka = 0;
+    var babushka_cena = 10;
+    var babushkaCena = document.getElementById('babushkaCena');
+    var currentBabushka = document.getElementById('currentBabushka');
+    var babushka = document.getElementById('babushka');
+
+    var count_babushka = 1;
+    var upgrade_babushka_stacks = 1;
+    var current_babushka_upgrades = 0;
+    var upgrade_babushka_cena = 200;
+    var currentBabushkaStacks = document.getElementById('currentBabushkaStacks');
+    var currentBabushkaUpgrades = document.getElementById('currentBabushkaUpgrades');
+    var upgrade_babushka = document.getElementById('upgrade_babushka');
+    var upgradeBabushkaCena = document.getElementById('upgradeBabushkaCena');
+
+
+
+    var current_farm = 0;
+    var farm_cena = 100;
+    var farmCena = document.getElementById('farmCena');
+    var currentFarm = document.getElementById('currentFarm');
+    var farm = document.getElementById('farm');
+
+    var count_farm = 1;
+    var upgrade_farm_stacks = 1;
+    var current_farm_upgrades = 0;
+    var upgrade_farm_cena = 1000;
+    var currentFarmStacks = document.getElementById('currentFarmStacks');
+    var currentFarmUpgrades = document.getElementById('currentFarmUpgrades');
+    var upgrade_farm = document.getElementById('upgrade_farm');
+    var upgradeFarmCena = document.getElementById('upgradeFarmCena');
+
+
+
+    var current_mine = 0;
+    var mine_cena = 1000;
+    var mineCena = document.getElementById('mineCena');
+    var currentMine = document.getElementById('currentMine');
+    var mine = document.getElementById('mine');
+
+    var count_mine = 1;
+    var upgrade_mine_stacks = 1;
+    var current_mine_upgrades = 0;
+    var upgrade_mine_cena = 5000;
+    var currentMineStacks = document.getElementById('currentMineStacks');
+    var currentMineUpgrades = document.getElementById('currentMineUpgrades');
+    var upgrade_mine = document.getElementById('upgrade_mine');
+    var upgradeMineCena = document.getElementById('upgradeMineCena');
+
+
+
+    var current_factory = 0;
+    var factory_cena = 10000;
+    var factoryCena = document.getElementById('factoryCena');
+    var currentFactory = document.getElementById('currentFactory');
+    var factory = document.getElementById('factory');
+
+    var count_factory = 1;
+    var upgrade_factory_stacks = 1;
+    var current_factory_upgrades = 0;
+    var upgrade_factory_cena = 50000;
+    var currentFactoryStacks = document.getElementById('currentFactoryStacks');
+    var currentFactoryUpgrades = document.getElementById('currentFactoryUpgrades');
+    var upgrade_factory = document.getElementById('upgrade_factory');
+    var upgradeFactoryCena = document.getElementById('upgradeFactoryCena');
+
+
+
+
+    function click_on_cookie() {
+        current_cookies += upgrade_click_stacks * rebirth_multiplier;
+        count_cookies += upgrade_click_stacks; 
+        currentCookies.textContent = current_cookies;
+    }
+
+    function click_on_rebirth() {
+        if (current_cookies >= rebirth_cena && current_rebirth < 6) {
+            rebirth_reset();
+            if (rebirth_cena < 500000) {
+                rebirth_cena = 500000;
+                rebirth_multiplier = 2.5;
+                next_multiplier = 5;
+            } else if (rebirth_cena < 1000000) {
+                rebirth_cena = 1000000;
+                rebirth_multiplier = 5;
+                next_multiplier = 10;
+            } else if (rebirth_cena < 10000000) {
+                rebirth_cena = 10000000;
+                rebirth_multiplier = 10;
+                next_multiplier = 15;
+            } else if (rebirth_cena < 50000000) {
+                rebirth_cena = 50000000;
+                rebirth_multiplier = 15;
+                next_multiplier = 25;
+            } else if (rebirth_cena < 100000000) {
+                rebirth_cena = 100000000;
+                rebirth_multiplier = 50;
+                next_multiplier = 100;
+            } else {
+                rebirth_cena = null;
+                rebirth_multiplier = 100;
+                next_multiplier = 0;
+            }
+            rebirthCena.textContent = rebirth_cena;
+            rebirthMultiplier.textContent = rebirth_multiplier;
+            nextMultiplier.textContent = next_multiplier;
+            current_rebirth++;
+            currentRebirth.textContent = current_rebirth;
+        }
+    }
+
+    function click_on_cursor() {
+        if (current_cookies >= cursor_cena) {
+            current_cookies -= cursor_cena;
+            currentCookies.textContent = current_cookies;
+            current_cursor++;
+            currentCursor.textContent = current_cursor;
+            if (cursor_cena < 100) {
+                cursor_cena += 5;
+            } else if (cursor_cena < 200) {
+                cursor_cena += 10;
+            } else if (cursor_cena < 400) {
+                cursor_cena += 20;
+            } else if (cursor_cena < 900) {
+                cursor_cena += 50;
+            } else if (cursor_cena < 1400) {
+                cursor_cena += 100;
+            } else if (cursor_cena < 2400) {
+                cursor_cena += 125;
+            } else if (cursor_cena < 3000) {
+                cursor_cena += 150;
+            } else if (cursor_cena < 4000) {
+                cursor_cena += 200;
+            } else if (cursor_cena < 6000) {
+                cursor_cena += 250;
+            } else if (cursor_cena < 7500) {
+                cursor_cena += 300;
+            } else {
+                cursor_cena += 500;
+            }
+            cursorCena.textContent = cursor_cena;
+        } else {
+            alert("Ur broke LMAO.")
+        }
+        
+    }
+
+    function click_on_babushka() {
+        if (current_cookies >= babushka_cena) {
+            current_cookies -= babushka_cena;
+            currentCookies.textContent = current_cookies;
+            current_babushka++;
+            currentBabushka.textContent = current_babushka;
+            if (babushka_cena < 100) {
+                babushka_cena += 10;
+            } else if (babushka_cena < 250) {
+                babushka_cena += 25;
+            } else if (babushka_cena < 500) {
+                babushka_cena += 50;
+            } else if (babushka_cena < 1000) {
+                babushka_cena += 100;
+            } else if (babushka_cena < 3000) {
+                babushka_cena += 200;
+            } else if (babushka_cena < 5000) {
+                babushka_cena += 250;
+            } else if (babushka_cena < 10000) {
+                babushka_cena += 500;
+            } else if (babushka_cena < 15000) {
+                babushka_cena += 1000;
+            } else {
+                babushka_cena += 2000;
+            }
+            babushkaCena.textContent = babushka_cena;
+        } else {
+            alert("Ur broke LMAO.")
+        }
+        
+    }
+
+    function click_on_farm() {
+        if (current_cookies >= farm_cena) {
+            current_cookies -= farm_cena;
+            currentCookies.textContent = current_cookies;
+            current_farm++;
+            currentFarm.textContent = current_farm;
+            if (farm_cena < 700) {
+                farm_cena += 100;
+            } else if (farm_cena < 1700) {
+                farm_cena += 250;
+            } else if (farm_cena < 3000) {
+                farm_cena += 300;
+            } else if (farm_cena < 5000) {
+                farm_cena += 500;
+            } else if (farm_cena < 10000) {
+                farm_cena += 1000;
+            } else if (farm_cena < 20000) {
+                farm_cena += 2000;
+            } else if (farm_cena < 50000) {
+                farm_cena += 5000;
+            } else {
+                farm_cena += 15000;
+            }
+            farmCena.textContent = farm_cena;
+        } else {
+            alert("Ur broke LMAO.")
+        }
+        
+    }
+
+    function click_on_mine() {
+        if (current_cookies >= mine_cena) {
+            current_cookies -= mine_cena;
+            currentCookies.textContent = current_cookies;
+            current_mine++;
+            currentMine.textContent = current_mine;
+            if (mine_cena < 3000) {
+                mine_cena += 250;
+            } else if (mine_cena < 7000) {
+                mine_cena += 500;
+            } else if (mine_cena < 12000) {
+                mine_cena += 1000;
+            } else if (mine_cena < 20000) {
+                mine_cena += 2000;
+            } else if (mine_cena < 50000) {
+                mine_cena += 5000;
+            } else if (mine_cena < 110000) {
+                mine_cena += 15000;
+            } else if (mine_cena < 200000) {
+                mine_cena += 30000;
+            } else {
+                mine_cena += 50000;
+            }
+            mineCena.textContent = mine_cena;
+        } else {
+            alert("Ur broke LMAO.")
+        }
+    }
+
+    function click_on_factory() {
+        if (current_cookies >= factory_cena) {
+            current_cookies -= factory_cena;
+            currentCookies.textContent = current_cookies;
+            current_factory++;
+            currentFactory.textContent = current_factory;
+            if (factory_cena < 50000) {
+                factory_cena += 10000;
+            } else if (factory_cena < 110000) {
+                factory_cena += 20000;
+            } else if (factory_cena < 200000) {
+                factory_cena += 30000;
+            } else if (factory_cena < 500000) {
+                factory_cena += 50000;
+            } else if (factory_cena < 1000000) {
+                factory_cena += 100000;
+            } else if (factory_cena < 5000000) {
+                factory_cena += 500000;
+            } else if (factory_cena < 15000000) {
+                factory_cena += 1000000;
+            } else {
+                factory_cena += 50000000;
+            }
+            factoryCena.textContent = factory_cena;
+        } else {
+            alert("Ur broke LMAO.")
+        }
+    }
+
+    function add_click_stacks() {
+        if (current_cookies >= upgrade_click_cena) {
+            current_cookies -= upgrade_click_cena;
+            upgrade_click_stacks *= 2;
+            if (upgrade_click_cena < 5000){
+                upgrade_click_cena += 2000;
+            } else if (upgrade_click_cena < 20000) {
+                upgrade_click_cena += 15000;
+            } else if (upgrade_click_cena < 50000) {
+                upgrade_click_cena += 30000;
+            } else if (upgrade_click_cena < 100000) {
+                upgrade_click_cena += 50000;
+            } else if (upgrade_click_cena < 1000000) {
+                upgrade_click_cena += 90000;
+            } else if (upgrade_click_cena < 1000000) {
+                upgrade_click_cena += 900000;
+            } else if (upgrade_click_cena < 10000000) {
+                upgrade_click_cena += 9000000;
+            } else {
+                upgrade_click_cena += 100000000;
+            }
+            upgradeClickCena.textContent = upgrade_click_cena;
+            current_click_upgrades++;
+            currentClickUpgrades.textContent = current_click_upgrades;
+            currentClickStacks.textContent = upgrade_click_stacks;
+            count_click++;
+        }
+    }
+
+    function add_speed_stacks() {
+        if (current_cookies >= upgrade_speed_cena) {
+            current_cookies -= upgrade_speed_cena;
+            clearInterval(intervalID);
+            speed *= 2;
+            if (upgrade_speed_cena < 100000){
+                upgrade_speed_cena = 100000;
+            } else if (upgrade_speed_cena < 1000000) {
+                upgrade_speed_cena = 1000000;
+            } else if (upgrade_speed_cena < 5000000) {
+                upgrade_speed_cena = 5000000;
+            } else {upgrade_speed_cena = 99999999999999999}
+            upgradeSpeedCena.textContent = upgrade_speed_cena;
+            current_speed_upgrades++;
+            currentSpeedUpgrades.textContent = current_speed_upgrades;
+            Speed.textContent = speed;
+            if (speed == 2) {
+                intervalID = setInterval(total_gains, 500);
+            } else if (speed == 4) {
+                intervalID = setInterval(total_gains, 250);
+            } else if (speed == 8) {
+                intervalID = setInterval(total_gains, 125);
+            } else if (speed == 16) {
+                intervalID = setInterval(total_gains, 62.5);
+            } else {
+                intervalID = setInterval(total_gains, 30);
+            }
+            
+        }
+    }
+
+    function add_cursor_stacks() {
+        if (current_cookies >= upgrade_cursor_cena) {
+            current_cookies -= upgrade_cursor_cena;
+            upgrade_cursor_stacks++;
+            if (upgrade_cursor_cena < 500){
+                upgrade_cursor_cena += 250;
+            } else if (upgrade_cursor_cena < 2500) {
+                upgrade_cursor_cena += 750;
+            } else if (upgrade_cursor_cena < 4500) {
+                upgrade_cursor_cena += 1000;
+            } else if (upgrade_cursor_cena < 9000) {
+                upgrade_cursor_cena += 1500;
+            } else if (upgrade_cursor_cena < 15000) {
+                upgrade_cursor_cena += 3000;
+            } else if (upgrade_cursor_cena < 30000) {
+                upgrade_cursor_cena += 5000;
+            } else if (upgrade_cursor_cena < 50000) {
+                upgrade_cursor_cena += 10000;
+            } else if (upgrade_cursor_cena < 100000) {
+                upgrade_cursor_cena += 25000;
+            } else {
+                upgrade_cursor_cena += 1000000;
+            }
+            upgradeCursorCena.textContent = upgrade_cursor_cena;
+            current_cursor_upgrades++;
+            currentCursorUpgrades.textContent = current_cursor_upgrades;
+            currentCursorStacks.textContent = upgrade_cursor_stacks;
+            count_cursor++;
+        }
+    }
+
+    function add_babushka_stacks() {
+        if (current_cookies >= upgrade_babushka_cena) {
+            current_cookies -= upgrade_babushka_cena;
+            upgrade_babushka_stacks++;
+            if (upgrade_babushka_cena < 1000){
+                upgrade_babushka_cena += 200;
+            } else if (upgrade_babushka_cena < 3000) {
+                upgrade_babushka_cena += 500;
+            } else if (upgrade_babushka_cena < 10000) {
+                upgrade_babushka_cena += 1000;
+            } else if (upgrade_babushka_cena < 20000) {
+                upgrade_babushka_cena += 2000;
+            } else if (upgrade_babushka_cena < 50000) {
+                upgrade_babushka_cena += 5000;
+            } else if (upgrade_babushka_cena < 100000) {
+                upgrade_babushka_cena += 10000;
+            } else {
+                upgrade_babushka_cena += 25000;
+            }
+            upgradeBabushkaCena.textContent = upgrade_babushka_cena;
+            current_babushka_upgrades++;
+            currentBabushkaUpgrades.textContent = current_babushka_upgrades;
+            currentBabushkaStacks.textContent = upgrade_babushka_stacks;
+            count_babushka++;
+        }
+    }
+
+    function add_farm_stacks() {
+        if (current_cookies >= upgrade_farm_cena) {
+            current_cookies -= upgrade_farm_cena;
+            upgrade_farm_stacks++;
+            if (upgrade_farm_cena < 5000){
+                upgrade_farm_cena += 1000;
+            } else if (upgrade_farm_cena < 20000) {
+                upgrade_farm_cena += 3000;
+            } else if (upgrade_farm_cena < 40000) {
+                upgrade_farm_cena += 5000;
+            } else if (upgrade_farm_cena < 100000) {
+                upgrade_farm_cena += 10000;
+            } else {
+                upgrade_farm_cena += 25000;
+            }
+            upgradeFarmCena.textContent = upgrade_farm_cena;
+            current_farm_upgrades++;
+            currentFarmUpgrades.textContent = current_farm_upgrades;
+            currentFarmStacks.textContent = upgrade_farm_stacks;
+            count_farm++;
+        }
+    }
+
+    function add_mine_stacks() {
+        if (current_cookies >= upgrade_mine_cena) {
+            current_cookies -= upgrade_mine_cena;
+            upgrade_mine_stacks++;
+            if (upgrade_mine_cena < 20000){
+                upgrade_mine_cena += 5000;
+            } else if (upgrade_mine_cena < 50000) {
+                upgrade_mine_cena += 10000;
+            } else if (upgrade_mine_cena < 100000) {
+                upgrade_mine_cena += 25000;
+            } else if (upgrade_mine_cena < 1000000) {
+                upgrade_mine_cena += 50000;
+            } else {
+                upgrade_mine_cena += 100000;
+            }
+            upgradeMineCena.textContent = upgrade_mine_cena;
+            current_mine_upgrades++;
+            currentMineUpgrades.textContent = current_mine_upgrades;
+            currentMineStacks.textContent = upgrade_mine_stacks;
+            count_mine++;
+        }
+    }
+
+    function add_factory_stacks() {
+        if (current_cookies >= upgrade_factory_cena) {
+            current_cookies -= upgrade_factory_cena;
+            upgrade_factory_stacks++;
+            if (upgrade_factory_cena < 200000){
+                upgrade_factory_cena += 50000;
+            } else if (upgrade_factory_cena < 500000) {
+                upgrade_factory_cena += 100000;
+            } else if (upgrade_factory_cena < 1500000) {
+                upgrade_factory_cena += 250000;
+            } else if (upgrade_factory_cena < 5000000) {
+                upgrade_factory_cena += 500000;
+            } else if (upgrade_factory_cena < 15000000) {
+                upgrade_factory_cena += 1000000;
+            } else if (upgrade_factory_cena < 50000000) {
+                upgrade_factory_cena += 5000000;
+            } else if (upgrade_factory_cena < 10000000) {
+                upgrade_factory_cena += 1000000;
+            } else {
+                upgrade_factory_cena += 10000000;
+            }
+            upgradeFactoryCena.textContent = upgrade_factory_cena;
+            current_factory_upgrades++;
+            currentFactoryUpgrades.textContent = current_factory_upgrades;
+            currentFactoryStacks.textContent = upgrade_factory_stacks;
+            count_factory++;
+        }
+    }
+
+    function total_gains() {
+        gains += current_cursor * 0.5 * count_cursor;
+        gains += current_babushka * 1.5 * count_babushka;
+        gains += current_farm * 5 * count_farm;
+        gains += current_mine * 25 * count_mine;
+        gains += current_factory * 100 * count_factory;
+
+        current_cookies += gains * rebirth_multiplier;
+        currentCookies.textContent = current_cookies;
+        gains = 0;     
+    }
+
+    function cookies_per_second() {
+        cps = count_cookies + ((current_cursor * 0.5 * count_cursor) * speed) + 
+          ((current_babushka * 1.5 * count_babushka) * speed) + 
+          ((current_farm * 5 * count_farm) * speed) + 
+          ((current_mine * 25 * count_mine) * speed) +
+          ((current_factory * 100 * count_factory) * speed);
+    
+        cps *= rebirth_multiplier;
+        CPS.textContent = cps.toFixed(2);
+    }
+
+    function clicks_per_second() {
+        count_cookies = 0;
+    }
+
+    if (speed == 1) {
+        intervalID = setInterval(total_gains, interval);
+    }
+       
+    setInterval(clicks_per_second, 1000);
+    setInterval(cookies_per_second, 50);
+
+    function rebirth_reset() {
+        if (current_cookies >= rebirth_cena) {
+            speed = 1;
+            clearInterval(intervalID);
+            current_cookies = 0;
+            current_cursor= 0;
+            current_babushka = 0;
+            current_farm = 0;
+            current_mine = 0;
+            current_factory = 0;
+
+            Speed.textContent = speed;
+            currentCookies.textContent = current_cookies;
+            currentCursor.textContent = current_cursor;
+            currentBabushka.textContent = current_babushka;
+            currentFarm.textContent = current_farm;
+            currentMine.textContent = current_mine;
+            currentFactory.textContent = current_factory;
+
+            cursor_cena = 5;
+            babushka_cena = 10;
+            farm_cena = 100;
+            mine_cena = 1000;
+            factory_cena = 10000;
+            
+            cursorCena.textContent = cursor_cena;
+            babushkaCena.textContent = babushka_cena;
+            farmCena.textContent = farm_cena;
+            mineCena.textContent = mine_cena;
+            factoryCena.textContent = factory_cena;
+
+            current_speed_upgrades = 0;
+            current_click_upgrades = 0;
+            current_cursor_upgrades = 0;
+            current_babushka_upgrades = 0;
+            current_farm_upgrades = 0;
+            current_mine_upgrades = 0;
+            current_factory_upgrades = 0;
+
+            currentSpeedUpgrades.textContent = current_speed_upgrades;
+            currentClickUpgrades.textContent = current_click_upgrades;
+            currentCursorUpgrades.textContent = current_cursor_upgrades;
+            currentBabushkaUpgrades.textContent = current_babushka_upgrades;
+            currentFarmUpgrades.textContent = current_farm_upgrades;
+            currentMineUpgrades.textContent = current_mine_upgrades;
+            currentFactoryUpgrades.textContent = current_factory_upgrades;
+
+            upgrade_speed_cena = 10000;
+            upgrade_click_cena = 1000;
+            upgrade_cursor_cena = 100;
+            upgrade_babushka_cena = 200;
+            upgrade_farm_cena = 1000;
+            upgrade_mine_cena = 5000;
+            upgrade_factory_cena = 50000;
+            
+            upgradeSpeedCena.textContent = upgrade_speed_cena;
+            upgradeClickCena.textContent = upgrade_click_cena;
+            upgradeCursorCena.textContent = upgrade_cursor_cena;
+            upgradeBabushkaCena.textContent = upgrade_babushka_cena;
+            upgradeFarmCena.textContent = upgrade_farm_cena;
+            upgradeMineCena.textContent = upgrade_mine_cena;
+            upgradeFactoryCena.textContent = upgrade_factory_cena;
+
+            upgrade_click_stacks = 1;
+            upgrade_cursor_stacks = 1;
+            upgrade_babushka_stacks = 1;
+            upgrade_farm_stacks = 1;
+            upgrade_mine_stacks = 1;
+            upgrade_factory_stacks = 1;
+
+            currentClickStacks.textContent = upgrade_click_stacks;
+            currentCursorStacks.textContent = upgrade_cursor_stacks;
+            currentBabushkaStacks.textContent = upgrade_babushka_stacks;
+            currentFarmStacks.textContent = upgrade_farm_stacks;
+            currentMineStacks.textContent = upgrade_mine_stacks;
+            currentFactoryStacks.textContent = upgrade_factory_stacks;
+
+            count_click = 1;
+            count_cursor = 1;
+            count_babushka = 1;
+            count_farm = 1;
+            count_mine = 1;
+            count_factory = 1;
+
+            intervalID = setInterval(total_gains, interval);
+        }
+    }
+
+    button.addEventListener('click', click_on_cookie);
+    cursor.addEventListener('click', click_on_cursor)
+    babushka.addEventListener('click', click_on_babushka);
+    farm.addEventListener('click', click_on_farm);
+    mine.addEventListener('click', click_on_mine);
+    factory.addEventListener('click', click_on_factory);
+
+    rebirth.addEventListener('click', click_on_rebirth);
+
+    upgrade_speed.addEventListener('click', add_speed_stacks);
+    upgrade_click.addEventListener('click', add_click_stacks);
+    upgrade_cursor.addEventListener('click', add_cursor_stacks);
+    upgrade_babushka.addEventListener('click', add_babushka_stacks);
+    upgrade_farm.addEventListener('click', add_farm_stacks);
+    upgrade_mine.addEventListener('click', add_mine_stacks);
+    upgrade_factory.addEventListener('click', add_factory_stacks);
+</script>

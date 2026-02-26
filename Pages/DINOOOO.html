@@ -1,0 +1,317 @@
+<html>
+<head>
+    <link   rel="stylesheet"
+                type="text/css"
+                href="../Styles/card.css"/>
+    <style>
+        .cactus1 {
+            position: fixed;
+            top: 320px;
+            left: 1000px;
+        }
+
+        .cactus2 {
+            position: fixed;
+            top: 370px;
+            left: 2000px;
+        }
+
+        .cactus3 {
+            position: fixed;
+            top: 310px;
+            left: 2000px;
+        }
+
+        .cactus4 {
+            position: fixed;
+            top: 350px;
+            left: 2000px;
+        }
+
+        .dino {
+            position: fixed;
+            top: 300px;
+            left: 100px;
+            transition: top 0.3s;
+        }
+        
+        .podlaha {
+            position: fixed;
+            top: 500px;
+        }
+    </style>
+</head>
+<body>
+    <div style="background-color: aquamarine; height: 100%;">
+        <a href="../index.html"><img class="card" src="../Images/Home.png" style="width: 100; height: 100; float: left;"><img class="card" src="../Images/Home.png" style="width: 100; height: 100; float: right;"></a>
+        <h2>Score: <span id="Score">0</span><span style="float: right; color: green;" onclick="toggleSoundEffects()" id="soundEffectsSwitch">ON</span><span style="float: right;">Sound Effects: </span></h2>
+        <h2><span>Highscore: </span><span id="Highscore">0</span><span style="float: right; color: red;" onclick="toggleMusic()" id="musicSwitch">OFF</span><span style="float: right;">Music: </span></h2>
+        
+        <div class="dino" id="dino"><img src="../Images/dino2.png" width="200px" height="200px" alt="Dino"></div>
+        
+        <div class="cactus1" id="cactus1"><img src="../Images/cactus.png" width="90px" height="180px" alt="Cactus"></div>
+        <div class="cactus2" id="cactus2"><img src="../Images/cactus.png" width="80px" height="130px" alt="Cactus"></div>
+        <div class="cactus3" id="cactus3"><img src="../Images/cactus.png" width="90px" height="190px" alt="Cactus"></div>
+        <div class="cactus4" id="cactus4"><img src="../Images/cactus.png" width="70px" height="150px" alt="Cactus"></div>
+        
+        <div class="podlaha"><img src="../Images/podlaha.png" width="255%" height="9px"></div>
+        
+        <audio id="audio" src="../Sounds/metalPipeSound.m4a"></audio>
+        <audio id="audio2" autoplay loop src="../Music/BackgroundDinoSong.m4a"></audio>
+        <audio id="audio3" src="../Sounds/DinoJumpSound.mp3"></audio>
+    </div>
+</body>
+</html>
+<script>
+    var cactus1 = document.getElementById('cactus1');
+    var cactus2 = document.getElementById('cactus2');
+    var cactus3 = document.getElementById('cactus3');
+    var cactus4 = document.getElementById('cactus4');
+    var position1 = 2000;
+    var position2 = -220;
+    var position3 = -220;
+    var position4 = -220;
+
+    var dino = document.getElementById('dino');
+    var rand = 0;
+    var score = 0;
+    var Score = document.getElementById('Score');
+    var on_ground = true;
+    var intervalID;
+    var speed_multiplier = 1;
+    var speed = 1;
+    var highscore = 0;
+    var Highscore = document.getElementById('Highscore');
+    var crouching = false;
+
+    var metalPipeSound = document.querySelector('#audio');
+    metalPipeSound.volume = 0.04;
+    var sound_effects = true;
+    var soundEffectsSwitch = document.getElementById('soundEffectsSwitch');
+    var backgroundMusic = document.querySelector('#audio2');
+    backgroundMusic.volume = 0.2;
+    backgroundMusic.playbackRate = 1;
+    var music_on = true;
+    var musicSwitch = document.getElementById('musicSwitch');
+    var dinoJumpSound = document.querySelector('#audio3');
+    dinoJumpSound.volume = 0.1;
+    dinoJumpSound.playbackRate = 1.2;
+
+    function add_score() {
+        score += Math.round(1 * speed_multiplier);
+        Score.textContent = score;
+
+        if (score > highscore) {
+            highscore = score;
+            Highscore.textContent = highscore;
+        }
+        
+        if (score % 100 === 0 && speed < 31) {
+            if (sound_effects) metalPipeSound.play();
+            metalPipeSound.playbackRate += 0.1;
+            speed_multiplier += 0.1;
+            speed++;
+            clearInterval(intervalID);
+            intervalID = setInterval(add_score, 100 / speed_multiplier);
+        }
+    }
+
+
+    function toggleSoundEffects() {
+        sound_effects = !sound_effects;
+        soundEffectsSwitch.textContent = sound_effects ? "ON" : "OFF";
+        soundEffectsSwitch.style.color = sound_effects ? "green" : "red";
+    }
+
+    function toggleMusic() {
+        if (music_on) {
+            backgroundMusic.pause();
+            musicSwitch.textContent = "OFF";
+            musicSwitch.style.color = "red";
+        } else {
+            backgroundMusic.play();
+            musicSwitch.textContent = "ON";
+            musicSwitch.style.color = "green";
+        }
+        music_on = !music_on;
+    }
+
+    function getRandomInt(max) {
+        return Math.floor(Math.random() * max);
+    }
+
+    function cactus_gon(){
+        rand = getRandomInt(4);
+        if (rand === 0) {
+            one_cactus();
+        } else if (rand === 1) {
+            two_cactus();
+        } else if (rand === 2) {
+            three_cactus();
+        } else if (rand ===3 && score >= 200) {
+            four_cactus();
+        }  else {cactus_gon()}
+    }
+
+    function one_cactus(){
+        rand = getRandomInt(4);
+        if (rand === 0) {
+            position1 = 2000;
+        } else if (rand === 1) {
+            position2 = 2000;
+        } else if (rand === 2) {
+            position3 = 2000;
+        } else {
+            position4 = 2000;
+        }
+    }
+
+    function two_cactus(){
+        rand = getRandomInt(4)
+        if (rand === 0) {
+            position1 = 2000;
+            position2 = 2100;
+            which_cactus = 2;
+        } else if (rand === 1) {
+            position2 = 2000;
+            position1 = 2090;
+        } else if (rand === 2) {
+            position3 = 2000;
+            position1 = 2100;
+        } else if (rand === 3) {
+            position4 = 2000;
+            position1 = 2080;
+        }
+    }
+
+    function three_cactus() {
+        rand = getRandomInt(2);
+        if (rand === 0) {
+            position1 = 2000;
+            position2 = 2100;
+            position3 = 2190;
+            which_cactus = 3;
+        } else if (rand === 1) {
+            position3 = 2000;
+            position2 = 2100;
+            position1 = 2190;
+        }
+    }
+
+    function four_cactus() {
+        position1 = 2000;
+        position2 = 2100;
+        position3 = 2190;
+        position4 = 2275;
+    }
+
+    function game_loop() {
+        if (position1 > -220) position1 -= 10 + speed;
+        if (position2 > -220) position2 -= 10 + speed;
+        if (position3 > -220) position3 -= 10 + speed;
+        if(position4 > -220) position4 -= 10 + speed;
+        cactus1.style.left = position1 + "px";
+        cactus2.style.left = position2 + "px";
+        cactus3.style.left = position3 + "px";
+        cactus4.style.left = position4 + "px";
+        checkCollision();
+
+        if (!intervalID) {
+            intervalID = setInterval(add_score, 100 / speed_multiplier);
+        }
+
+        if (position1 <= -220 && position2 <= -220 && position3 <= -220 && position4 <= -220) {
+        cactus_gon();
+        }
+        
+    }
+    setInterval(game_loop, 16);
+
+    function jump() {
+        if (on_ground && !crouching) {
+            if (sound_effects) dinoJumpSound.play();
+            dino.style.top = '50px';
+            on_ground = false;
+            setTimeout(function() {
+                dino.style.top = '300px';
+                setTimeout(function() { on_ground = true; }, 150);
+            }, 750);
+        }
+    }
+
+    function crouch() {
+        if (!on_ground && !crouching) {
+            crouching = true;
+            dino.style.transition = 'top 0.15s';
+            dino.style.top = '300px';
+            setTimeout(function() {
+                crouching = false;
+                dino.style.transition = 'top 0.3s';
+            }, 50);
+        }
+    }
+
+    document.addEventListener("keydown", function(event) {
+        if (event.keyCode === 16) {
+            crouch();
+        }
+    });
+
+    document.addEventListener("keydown", function(event) {
+        if (event.keyCode === 32 && on_ground) {
+            jump();
+        }
+    });
+
+    function checkCollision() {
+        var dinoRect = dino.getBoundingClientRect();
+        
+        var dinoHitbox = {
+            left: dinoRect.left + 50,
+            right: dinoRect.right,
+            top: dinoRect.top + 50,
+            bottom: dinoRect.bottom + 30
+        };
+        
+        [cactus1, cactus2, cactus3, cactus4].forEach(cactus => {
+            var cactusRect = cactus.getBoundingClientRect();
+            var cactusHitbox = {
+                left: cactusRect.left + 20,
+                right: cactusRect.right - 20,
+                top: cactusRect.top + 10,
+                bottom: cactusRect.bottom - 10
+            };
+
+            if (
+                dinoHitbox.right > cactusHitbox.left &&
+                dinoHitbox.left < cactusHitbox.right &&
+                dinoHitbox.bottom > cactusHitbox.top &&
+                dinoHitbox.top < cactusHitbox.bottom
+            ) {
+                if (sound_effects) metalPipeSound.play();
+                alert("You lose!" + "\nScore: " + score);
+                resetGame();
+            }
+        });
+    }
+
+    function resetGame() {
+        position1 = 2000;
+        position2 = -220;
+        position3 = -220;
+        position4 = -220;
+        cactus1.style.left = position1 + "px";
+        cactus2.style.left = position2 + "px";
+        cactus3.style.left = position3 + "px";
+        cactus4.style.left = position4 + "px";
+        on_ground = true;
+        dino.style.top = '300px';
+        clearInterval(intervalID);
+        intervalID = null;
+        score = 0;
+        Score.textContent = score;
+        speed = 1;
+        speed_multiplier = 1;
+        Highscore.textContent = highscore;
+    }
+</script>

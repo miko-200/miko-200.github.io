@@ -1,0 +1,47 @@
+.tile1 {
+    position: fixed;
+    top: -200px;
+    left: 400px;
+}
+
+.tile2 {
+    position: fixed;
+    top: -200px;
+    left: 620px;
+}
+
+.tile3 {
+    position: fixed;
+    top: -200px;
+    left: 840px;
+}
+
+.tile4 {
+    position: fixed;
+    top: -200px;
+    left: 1060px;
+}
+
+.cTile {
+    position: fixed;
+    top: 750px;
+    left: 400px;
+}
+
+.vTile {
+    position: fixed;
+    top: 750px;
+    left: 620px;
+}
+
+.bTile {
+    position: fixed;
+    top: 750px;
+    left: 840px;
+}
+
+.nTile {
+    position: fixed;
+    top: 750px;
+    left: 1060px;
+}

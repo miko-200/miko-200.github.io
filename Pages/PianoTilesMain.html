@@ -1,0 +1,1032 @@
+<html>
+    <head>
+    <style>
+        .tile1 {
+            position: fixed;
+            top: -200px;
+            left: 400px;
+        }
+
+        .tile2 {
+            position: fixed;
+            top: -200px;
+            left: 620px;
+        }
+
+        .tile3 {
+            position: fixed;
+            top: -200px;
+            left: 840px;
+        }
+
+        .tile4 {
+            position: fixed;
+            top: -200px;
+            left: 1060px;
+        }
+
+        .cTile {
+            position: fixed;
+            top: 750px;
+            left: 400px;
+        }
+
+        .vTile {
+            position: fixed;
+            top: 750px;
+            left: 620px;
+        }
+
+        .bTile {
+            position: fixed;
+            top: 750px;
+            left: 840px;
+        }
+
+        .nTile {
+            position: fixed;
+            top: 750px;
+            left: 1060px;
+        }
+
+        .start {
+            position: fixed;
+            top: 150px;
+            left: 530px;
+        }
+        </style>
+    </head>
+    <body>
+        <div>
+        <span><input type="image" id="BadRomance" src="../Images/BadRomance.jpeg" style="width: 100; height: 100; float: left;"><input type="image" id="BadRomance" src="../Images/BadRomance.jpeg" style="width: 100; height: 100; float: right;"></span>
+        <h2>Score: <span id="Score">0</span><span style="float: right;">X</span><span style="float: right;" id="ScoreMultiplier">1</span><span style="float: right;">Score Multiplier: </span></h2>
+        <h2><span>Misses: </span><span id="Misses">0</span><span style="float: right; color: green;" onclick="toggleMusic()" id="musicSwitch">ON</span><span style="float: right;">Music: </span></h2><br>
+        <a href="../index.html"><img class="card" src="../Images/Home.png" style="width: 100; height: 100; float: left;"><img class="card" src="../Images/Home.png" style="width: 100; height: 100; float: right;"></a>
+        <h2 style="margin-top: 30%; margin-right: 100px;">Toggle Music: M</h2>
+            
+            <div class="tile1" id="tile1"><img src="../Images/tile.png" width="200px" height="120px" ></div>
+            <div class="tile1" id="tile1_2"><img src="../Images/tile.png" width="200px" height="120px" ></div>
+            <div class="tile1" id="tile1_3"><img src="../Images/tile.png" width="200px" height="120px" ></div>
+
+            <div class="tile2" id="tile2"><img src="../Images/tile.png" width="200px" height="120px" ></div>
+            <div class="tile2" id="tile2_2"><img src="../Images/tile.png" width="200px" height="120px" ></div>
+            <div class="tile2" id="tile2_3"><img src="../Images/tile.png" width="200px" height="120px" ></div>
+
+            <div class="tile3" id="tile3"><img src="../Images/tile.png" width="200px" height="120px" ></div>
+            <div class="tile3" id="tile3_2"><img src="../Images/tile.png" width="200px" height="120px" ></div>
+            <div class="tile3" id="tile3_3"><img src="../Images/tile.png" width="200px" height="120px" ></div>
+
+            <div class="tile4" id="tile4"><img src="../Images/tile.png" width="200px" height="120px" ></div>
+            <div class="tile4" id="tile4_2"><img src="../Images/tile.png" width="200px" height="120px" ></div>
+            <div class="tile4" id="tile4_3"><img src="../Images/tile.png" width="200px" height="120px" ></div>
+
+            <div class="cTile" id="cTile"><img src="../Images/CTile.png" width="200px" height="200px" ></div>
+            <div class="vTile" id="vTile"><img src="../Images/VTile.png" width="200px" height="200px" ></div>
+            <div class="bTile" id="bTile"><img src="../Images/BTile.png" width="200px" height="200px" ></div>
+            <div class="nTile" id="nTile"><img src="../Images/NTile.png" width="200px" height="200px" ></div>
+
+            <div class="start" id="Start"><img src="../Images/Start.png" width="500px" height="500px" ></div>
+
+            <div class="cTile" id="cTilePressed"><img src="../Images/CTilePressed.png" width="200px" height="200px" ></div>
+            <div class="vTile" id="vTilePressed"><img src="../Images/VTilePressed.png" width="200px" height="200px" ></div>
+            <div class="bTile" id="bTilePressed"><img src="../Images/BTilePressed.png" width="200px" height="200px" ></div>
+            <div class="nTile" id="nTilePressed"><img src="../Images/NTilePressed.png" width="200px" height="200px" ></div>
+
+        <audio id="LGBR" src="../Music/LadyGaga_BadRomance.mp3" onerror="alert('Audio file not found or cannot be loaded.')"></audio>
+        </div>
+    </body>
+</html>
+<script>
+    var tile1 = document.getElementById('tile1');
+    var tile2 = document.getElementById('tile2');
+    var tile3 = document.getElementById('tile3');
+    var tile4 = document.getElementById('tile4');
+
+    var tile1_2 = document.getElementById('tile1_2');
+    var tile2_2 = document.getElementById('tile2_2');
+    var tile3_2 = document.getElementById('tile3_2');
+    var tile4_2 = document.getElementById('tile4_2');
+
+    var tile1_3 = document.getElementById('tile1_3');
+    var tile2_3 = document.getElementById('tile2_3');
+    var tile3_3 = document.getElementById('tile3_3');
+    var tile4_3 = document.getElementById('tile4_3');
+
+    var position1 = -500;
+    var position2 = -500;
+    var position3 = -500;
+    var position4 = -500;
+
+    var position1_2 = -500;
+    var position2_2 = -500;
+    var position3_2 = -500;
+    var position4_2 = -500;
+
+    var position1_3 = -500;
+    var position2_3 = -500;
+    var position3_3 = -500;
+    var position4_3 = -500;
+
+    SetOpacity('cTilePressed', 0);
+    SetOpacity('vTilePressed', 0);
+    SetOpacity('bTilePressed', 0);
+    SetOpacity('nTilePressed', 0);
+
+    var intervalID = null;
+
+    var play = document.getElementById('BadRomance');
+    var start = document.getElementById('Start');
+    var started = 0;
+    var rara = 0;
+
+    var speed = 0;
+    var keydowncheck1 = 0;
+    var keydowncheck2 = 0;
+    var keydowncheck3 = 0;
+    var keydowncheck4 = 0;
+    var perfect_score = 0;
+    var perfect_tiles = 0;
+    var misses = 0;
+    var Misses = document.getElementById('Misses');
+    var score_multiplier = 1;
+    var ScoreMultiplier = document.getElementById('ScoreMultiplier');
+    var score = 0;
+    var Score = document.getElementById('Score');
+
+    var music_on = true;
+    var musicSwitch = document.getElementById('musicSwitch');
+    var LadyGagaBadRomance = document.querySelector('#LGBR');
+    LadyGagaBadRomance.volume = 0.2;
+
+    
+    if (started === 0){
+        play.addEventListener("click", game_play);
+        start.addEventListener("click", game_play);
+        started = 1;
+    }
+
+    document.addEventListener("keydown", function(event){
+            if (event.keyCode === 77) {
+                toggleMusic();
+            }
+        });
+
+    function toggleMusic() {
+
+        if (music_on) {
+            LadyGagaBadRomance.volume = 0;
+            musicSwitch.textContent = "OFF";
+            musicSwitch.style.color = "red";
+        } else {
+            LadyGagaBadRomance.volume = 0.2;
+            musicSwitch.textContent = "ON";
+            musicSwitch.style.color = "green";
+        }
+        music_on = !music_on;
+    }
+
+
+    function game_play(){
+        started = 1;
+        sleep(500).then(() => {LadyGagaBadRomance.play()});
+        SetOpacity('Start', 0);
+        function add_score() {
+            if (perfect_tiles >= 40) {
+                score_multiplier = 6;
+            } else if (perfect_tiles >= 32) {
+                score_multiplier = 5;
+            } else if (perfect_tiles >= 24) {
+                score_multiplier = 4;
+            } else if (perfect_tiles >= 16) {
+                score_multiplier = 3;
+            } else if (perfect_tiles >= 8) {
+                score_multiplier = 2;
+            } else if (perfect_tiles < 8) {
+                score_multiplier = 1;
+            }
+            perfect_tiles++;
+            score += Math.round(5 * score_multiplier);
+            perfect_score = score;
+            Score.textContent = score;
+            ScoreMultiplier.textContent = score_multiplier;
+            
+           /*if (score % 500 === 0 && speed < 20) {
+                speed++;
+            }*/
+        }
+
+        function sleep(ms) {
+            return new Promise(resolve => setTimeout(resolve, ms));
+        }
+
+        async function oh_oh_oh() {
+                position1 = -200;
+                await sleep(250);
+                position2 = -200;
+                await sleep(250);
+                position3 = -200;
+                await sleep(250);
+                position4 = -200;
+                await sleep(400);
+                position4_2 = -200;
+                await sleep(900);
+                position3_2 = -200;
+                await sleep(400);
+                position2_2 = -200;
+                await sleep(400);
+                position1_2 = -200;
+                await sleep(1000);
+                position1 = -200;
+                await sleep(400);
+                position2 = -200;
+                await sleep(550);
+                position3 = -200;
+                await sleep(250);
+                position4 = -200;
+                await sleep(100);
+                position4_2 = -400;
+                await sleep(300);
+                position3_2 = -400;
+                await sleep(400);
+                position2_2 = -400;
+                await sleep(400);
+                position1_3 = -400;
+                await sleep(700);
+                position1 = -200;
+                await sleep(800);
+
+                position1_2 = -200;
+                await sleep(250);
+                position2_2 = -200;
+                await sleep(250);
+                position3_2 = -200;
+                await sleep(250);
+                position4_2 = -200;
+                await sleep(400);
+                position4 = -200;
+                await sleep(900);
+                position3 = -200;
+                await sleep(400);
+                position2 = -200;
+                await sleep(400);
+                position1 = -200;
+                await sleep(1000);
+                position1_2 = -200;
+                await sleep(400);
+                position2_2 = -200;
+                await sleep(550);
+                position3_2 = -200;
+                await sleep(250);
+                position4_2 = -200;
+                await sleep(100);
+                position4 = -400;
+                await sleep(300);
+                position3 = -400;
+                await sleep(400);
+                position2 = -400;
+                await sleep(400);
+                position1 = -400;
+                await sleep(700);
+                position1_2 = -200;
+                await sleep(2000);
+        }
+
+        async function ra_ra(){
+            position1 = -200;
+            await sleep(200);
+            position1_2 = -300;
+            await sleep(800);
+            position2 = -200;
+            await sleep(200);
+            position3 = -200;
+            await sleep(200);
+            position4 = -200;
+            await sleep(200);
+            position4_2 = -400;
+            await sleep(800);
+            position4_3 = -200;
+            await sleep(200);
+            position3_2 = -200;
+            await sleep(500);
+            position2_2 = -200;
+            await sleep(300);
+            position1_3 = -200;
+            await sleep(300);
+            position1_2 = -200;
+            await sleep(300);
+            position2_3 = -200;
+            await sleep(400);
+            position3_3 = -200;
+            await sleep(300);
+            position4 = -200;
+            await sleep(200);
+            position3 = -200;
+            await sleep(300);
+            position2 = -200;
+            await sleep(300);
+            position2_2 = -200;
+            await sleep(600);
+            position1 = -200;
+            await sleep(300);
+            position2_3 = -200;
+            await sleep(300);
+            position3_2 = -200;
+            await sleep(300);
+            position4_2 = -200;
+            await sleep(300);
+            position3_3 = -200;
+            await sleep(300);
+            position2 = -200;
+            await sleep(300);
+            position1_2 = -200;
+
+            if (rara === 1) {
+                return;
+            }
+
+            position1_3 = -200;
+            await sleep(200);
+            position1_2 = -300;
+            await sleep(800);
+            position2 = -200;
+            await sleep(200);
+            position3 = -200;
+            await sleep(200);
+            position4 = -200;
+            await sleep(200);
+            position4_2 = -400;
+            await sleep(800);
+            position4_3 = -200;
+            await sleep(200);
+            position3_2 = -200;
+            await sleep(500);
+            position2_2 = -200;
+            await sleep(300);
+            position1 = -200;
+            await sleep(300);
+            position1_2 = -200;
+            await sleep(300);
+            position2_3 = -200;
+            await sleep(400);
+            position3_3 = -200;
+            await sleep(300);
+            position4 = -200;
+            await sleep(200);
+            position3 = -200;
+            await sleep(300);
+            position2 = -200;
+            await sleep(300);
+            position2_2 = -200;
+            await sleep(600);
+            position1 = -200;
+            await sleep(300);
+            position2_3 = -200;
+            await sleep(300);
+            position3_2 = -200;
+            await sleep(300);
+            position4_2 = -200;
+            await sleep(300);
+            position3_3 = -200;
+            await sleep(300);
+            position2 = -200;
+            await sleep(300);   
+        }
+
+        async function i_want_ur_ugly(){
+            await sleep(400);
+            position1 = -200;
+            await sleep(300);
+            position2_2 = -200;
+            await sleep(300);
+            position1_2 = -200;
+            await sleep(300);
+            position2_3 = -200;
+            await sleep(300);
+            position1_3 = -200;
+
+            await sleep(500);
+            position4 = -200;
+            await sleep(300);
+            position3 = -200;
+            await sleep(300);
+            position4_2 = -200;
+            await sleep(300);
+            position3_2 = -200;
+            await sleep(300);
+            position4_3 = -200;
+            await sleep(500);
+            position3_3 = -200;
+
+            await sleep(600);
+            position1 = -200;
+            await sleep(300);
+            position2_2 = -200;
+            await sleep(300);
+            position1_2 = -200;
+            await sleep(300);
+            position2_3 = -200;
+            await sleep(300);
+            position1_3 = -200;
+            await sleep(300);
+            position1 = -200;
+            await sleep(300);
+            position2 = -200;
+            await sleep(400);
+            position1_2 = -200;
+            await sleep(300);
+            position2_2 = -200;
+            await sleep(300);
+            position4 = -200;
+            await sleep(300);
+            position4_2 = -200;
+
+            await sleep(550);
+            position1_3 = -200;
+            await sleep(250);
+            position2_3 = -200;
+            await sleep(250);
+            position3 = -200;
+            await sleep(250);
+            position4 = -200;
+
+            await sleep(1400);
+            position1 = -200;
+            await sleep(300);
+            position2 = -200;
+            await sleep(300);
+            position3_2 = -200;
+            await sleep(650);
+            position1_3 = -200;
+            await sleep(300);
+            position2_3 = -200;
+            await sleep(300);
+            position3_3 = -200;
+            await sleep(300);
+            position4_2 = -200;
+            await sleep(4100);
+
+            position1 = -200;
+            await sleep(300);
+            position2_2 = -200;
+            await sleep(300);
+            position1_2 = -200;
+            await sleep(300);
+            position2_3 = -200;
+            await sleep(300);
+            position1_3 = -200;
+
+            await sleep(500);
+            position4 = -200;
+            await sleep(300);
+            position3 = -200;
+            await sleep(300);
+            position4_2 = -200;
+            await sleep(300);
+            position3_2 = -200;
+            await sleep(300);
+            position4_3 = -200;
+            await sleep(500);
+            position3_3 = -200;
+
+            await sleep(600);
+            position1 = -200;
+            await sleep(300);
+            position2_2 = -200;
+            await sleep(300);
+            position1_2 = -200;
+            await sleep(300);
+            position2_3 = -200;
+            await sleep(300);
+            position1_3 = -200;
+            await sleep(300);
+            position1 = -200;
+            await sleep(300);
+            position2 = -200;
+            await sleep(400);
+            position1_2 = -200;
+            await sleep(300);
+            position2_2 = -200;
+            await sleep(300);
+            position4 = -200;
+            await sleep(300);
+            position4_2 = -200;
+
+            await sleep(550);
+            position1_3 = -200;
+            await sleep(250);
+            position2_3 = -200;
+            await sleep(250);
+            position3 = -200;
+            await sleep(250);
+            position4 = -200;
+
+            await sleep(1400);
+            position1 = -200;
+            await sleep(300);
+            position2 = -200;
+            await sleep(300);
+            position3_2 = -200;
+            await sleep(650);
+            position1_3 = -200;
+            await sleep(300);
+            position2_3 = -200;
+            await sleep(300);
+            position3_3 = -200;
+            await sleep(300);
+            position4_2 = -200;
+            await sleep(4100);
+        }
+
+        async function you_know_i_want_u() {
+            await sleep(1600)
+            position1 = -200;
+            await sleep(200);
+            position4 = -200;
+            await sleep(200);
+            position1_2 = -200;
+            await sleep(200);
+            position4_2 = -200;
+            await sleep(200);
+            position1_3 = -200;
+            await sleep(200);
+            position4_3 = -200;
+
+            await sleep(900);
+            position2 = -200;
+            await sleep(200);
+            position3 = -200;
+            await sleep(200);
+            position2_2 = -200;
+            await sleep(200);
+            position3_2 = -200;
+            await sleep(200);
+            position2_3 = -200;
+            await sleep(200);
+            position3_3 = -200;
+            await sleep(200);
+            position4_3 = -200;
+
+            await sleep(900);
+            position1 = -200;
+            await sleep(200);
+            position2 = -200;
+            await sleep(200);
+            position3 = -200;
+            await sleep(200);
+            position4 = -200;
+            await sleep(400);
+            position1_2 = -200;
+            await sleep(200);
+            position4_2 = -200;
+            await sleep(300);
+            position2_3 = -200;
+            await sleep(200);
+            position3_3 = -200;
+            await sleep(300);
+            position1_3 = -200;
+            await sleep(200);
+            position4_3 = -200;
+            await sleep(200);
+            position1 = -200;
+            await sleep(200);
+            position4 = -200;
+
+        }
+
+        async function i_want_ur_love() {
+            await sleep(600);
+            position1 = -200;
+            await sleep(300);
+            position4 = -200;
+            await sleep(300);
+            position1_2 = -200;
+            await sleep(300);
+            position4_2 = -200;
+            await sleep(350);
+            position2 = -200;
+            await sleep(300);
+            position3 = -200;
+            await sleep(300);
+            position2_2 = -200;
+            await sleep(300);
+            position3_2 = -200;
+            await sleep(300);
+            position2_3 = -200;
+            await sleep(200);
+            position3_3 = -200;
+            await sleep(500);
+
+            position1 = -200;
+            await sleep(300);
+            position4 = -200;
+            await sleep(300);
+            position1_2 = -200;
+            await sleep(300);
+            position4_2 = -200;
+            await sleep(300);
+            position1_3 = -200;
+            await sleep(300);
+            position4_3 = -200;
+            await sleep(300);
+            position2 = -200;
+            await sleep(300);
+            position3 = -200;
+            await sleep(300);
+            position2_2 = -200;
+            await sleep(300);
+            position3_2 = -200;
+            await sleep(200);
+            position2_3 = -200;
+            await sleep(300);
+            position3_3 = -200;
+            await sleep(200);
+        }
+
+        async function walk_walk() {
+            for (let i = 0; i <= 3; i++) {
+                position1 = -200;
+                await sleep(300);
+                position1_2 = -200;
+                await sleep(300);
+                position4 = -200;
+                await sleep(200);
+                position3 = -200;
+                await sleep(200);
+                position2 = -200;
+                await sleep(200);
+                position1_3 = -200;
+
+                await sleep(400);
+                position2_2 = -200;
+                await sleep(200);
+                position3_2 = -200;
+                await sleep(200);
+                position4_2 = -200;
+                await sleep(200);
+                position2_3 = -200;
+                await sleep(200);
+                position3_3 = -200;
+                await sleep(200);
+                position4_3 = -200;
+                await sleep(200);
+                position2 = -200;
+                await sleep(200);
+                position3 = -200;
+                await sleep(200);
+                position2_2 = -200;
+                await sleep(200);
+                position3_2 = -200;
+                await sleep(600);
+            }
+        }
+
+        async function i_donn_wanna_be_french() {
+            for (let i = 0; i < 4; i++) {
+                position1 = -200;
+                await sleep(300);
+                position2_3 = -200;
+                await sleep(300);
+                position3_3 = -200;
+                await sleep(400);
+                position4 = -200;
+                await sleep(400);
+                position4_2 = -200;
+                await sleep(500);
+
+                position1_2 = -200;
+                await sleep(300);
+                position2 = -200;
+                await sleep(300);
+                position3 = -200;
+                await sleep(300);
+                position4_3 = -200;
+                await sleep(300);
+                position3_2 = -200;
+                await sleep(400);
+                position2_2 = -200;
+                await sleep(550);
+            }
+
+            position1_3 = -200;
+            await sleep(250);
+            position2_3 = -200;
+            await sleep(250);
+            position3_3 = -200;
+            await sleep(250);
+            position4 = -200;
+            await sleep(400);
+            position4_2 = -200;
+            await sleep(600);
+            position3 = -200;
+            await sleep(400);
+            position2 = -200;
+            await sleep(400);
+            position1 = -200;
+            await sleep(1000);
+            position1_2 = -200;
+
+
+            await sleep(900);
+            position1_3 = -200;
+            await sleep(300);
+            position2_2 = -200;
+            await sleep(300);
+            position3_2 = -200;
+            await sleep(300);
+            position4_3 = -200;
+            await sleep(300);
+            position3_3 = -200;
+            await sleep(400);
+            position2_3 = -200;
+
+            await sleep(600);
+            position1_3 = -200;
+            await sleep(200);
+            position2_2 = -200;
+            await sleep(200);
+            position3_2 = -200;
+            await sleep(200);
+            position4_3 = -200;
+            await sleep(200);
+            position3_3 = -200;
+            await sleep(300);
+            position2_3 = -200;
+            await sleep(200);
+            position1 = -200;
+
+            await sleep(900);
+            position1_3 = -200;
+            await sleep(300);
+            position2_2 = -200;
+            await sleep(300);
+            position3_2 = -200;
+            await sleep(300);
+            position4_3 = -200;
+            await sleep(300);
+            position3_3 = -200;
+            await sleep(400);
+            position2_3 = -200;
+
+            await sleep(600);
+            position1_3 = -200;
+            await sleep(200);
+            position2_2 = -200;
+            await sleep(200);
+            position3_2 = -200;
+            await sleep(200);
+            position4_3 = -200;
+            await sleep(200);
+            position3_3 = -200;
+            await sleep(300);
+            position2_3 = -200;
+            await sleep(200);
+            position1 = -200;
+            await sleep(400);
+            position1_2 = -200;
+        }
+
+        async function tile_spawner(){
+            oh_oh_oh();
+            await sleep(16700);
+            ra_ra();
+            await sleep(15800);
+            rara = 1;
+            i_want_ur_ugly();
+            await sleep(31200);
+            you_know_i_want_u();
+            await sleep(9100);
+            i_want_ur_love();
+            await sleep(6850);
+            await sleep(400);
+            i_want_ur_love();
+            await sleep(6850);
+            await sleep(1800)
+            oh_oh_oh();
+            await sleep(16700);
+            ra_ra();
+            await sleep(7900);
+            i_want_ur_ugly();
+            await sleep(31200);
+            you_know_i_want_u();
+            await sleep(9100);
+            i_want_ur_love();
+            await sleep(6850);
+            i_want_ur_love();
+            await sleep(6850);
+            await sleep(2000);
+            oh_oh_oh();
+            await sleep(16700);
+            await sleep(200);
+            ra_ra();
+            await sleep(7900);
+            await sleep(100);
+            walk_walk();
+            await sleep(16400);
+            await sleep(300);
+            i_donn_wanna_be_french();
+            await sleep(28850);
+            await sleep(2500);
+            i_want_ur_love();
+            await sleep(6850);
+            i_want_ur_love();
+            await sleep(6850);
+            await sleep(1900);
+            oh_oh_oh();
+            await sleep(16700);
+            await sleep(200);
+            ra_ra();
+            await sleep(15000);
+            SetOpacity('Start', 100)
+            started = 0;
+
+            /*
+            pridat viac pesniciek(tie budu vsetky randomne) a hub
+            ramceky okolo c v b n kruhov*/
+        }
+        
+        tile_spawner();
+
+        function game_loop() {
+            if (position1 >= -400 && position1 <= 750){position1 += 10 + speed; tile1.style.top = position1;}
+            if (position2 >= -400 && position2 <= 750){position2 += 10 + speed; tile2.style.top = position2;}
+            if (position3 >= -400 && position3 <= 750){position3 += 10 + speed; tile3.style.top = position3;}
+            if (position4 >= -400 && position4 <= 750){position4 += 10 + speed; tile4.style.top = position4;}
+
+            if (position1_2 >= -400 && position1_2 <= 750){position1_2 += 10 + speed; tile1_2.style.top = position1_2;}
+            if (position2_2 >= -400 && position2_2 <= 750){position2_2 += 10 + speed; tile2_2.style.top = position2_2;}
+            if (position3_2 >= -400 && position3_2 <= 750){position3_2 += 10 + speed; tile3_2.style.top = position3_2;}
+            if (position4_2 >= -400 && position4_2 <= 750){position4_2 += 10 + speed; tile4_2.style.top = position4_2;}
+
+            if (position1_3 >= -400 && position1_3 <= 750){position1_3 += 10 + speed; tile1_3.style.top = position1_3;}
+            if (position2_3 >= -400 && position2_3 <= 750){position2_3 += 10 + speed; tile2_3.style.top = position2_3;}
+            if (position3_3 >= -400 && position3_3 <= 750){position3_3 += 10 + speed; tile3_3.style.top = position3_3;}
+            if (position4_3 >= -400 && position4_3 <= 750){position4_3 += 10 + speed; tile4_3.style.top = position4_3;}
+
+            if (position1 === 750 || position1_2 === 750 || position1_3 === 750 || position2 === 750 || position2_2 === 750 || position2_3 === 750 || position3 === 750 || position3_2 === 750 || position3_3 === 750 || position4 === 750 || position4_2 === 750 || position4_3 === 750) {
+                perfect_tiles = 0;
+                misses++;
+                Misses.textContent = misses;
+                ScoreMultiplier.textContent = 1;
+            }
+
+        }
+
+        setInterval(game_loop, 16);
+
+        document.addEventListener("keydown", function(event){
+            if (event.keyCode === 67) {
+                SetOpacity('cTilePressed', 100);
+                SetOpacity('cTile', 0);
+                if (position1 >= 550 && position1 <= 750) {
+                    position1 = -500;
+                    tile1.style.top = position1;
+                    add_score();
+                } else if (position1_2 >= 550 && position1_2 <= 750) {
+                    position1_2 = -500;
+                    tile1_2.style.top = position1_2;
+                    add_score()
+                } else if (position1_3 >= 550 && position1_3 <= 750) {
+                    position1_3 = -500;
+                    tile1_3.style.top = position1_3;
+                    add_score()
+                } else {
+                    perfect_tiles = 0;
+                    ScoreMultiplier.textContent = 1;
+                    if (keydowncheck1 === 0){
+                        misses++;
+                        Misses.textContent = misses;
+                        keydowncheck1 = 1;
+                    }
+                }
+            }
+        }); 
+
+        document.addEventListener("keyup", function(event){
+            if (event.keyCode === 67) {
+                SetOpacity('cTilePressed', 0);
+                SetOpacity('cTile', 100);
+                keydowncheck1 = 0;
+            }
+        }); 
+
+        document.addEventListener("keydown", function(event){
+            if (event.keyCode === 86) {
+                SetOpacity('vTilePressed', 100);
+                SetOpacity('vTile', 0);
+                if (position2 >= 550 && position2 <= 750) {
+                    position2 = -500;
+                    tile2.style.top = position2;
+                    add_score();
+                } else if (position2_2 >= 550 && position2_2 <= 750) {
+                    position2_2 = -500;
+                    tile2_2.style.top = position2_2;
+                    add_score()
+                } else if (position2_3 >= 550 && position2_3 <= 750) {
+                    position2_3 = -500;
+                    tile2_3.style.top = position2_3;
+                    add_score()
+                } else {
+                    perfect_tiles = 0;
+                    ScoreMultiplier.textContent = 1;
+                    if (keydowncheck2 === 0){
+                        misses++;
+                        Misses.textContent = misses;
+                        keydowncheck2 = 1;
+                    }
+                }
+            }
+        });
+
+        document.addEventListener("keyup", function(event){
+            if (event.keyCode === 86) {
+                SetOpacity('vTilePressed', 0);
+                SetOpacity('vTile', 100);
+                keydowncheck2 = 0;
+            }
+        }); 
+
+        document.addEventListener("keydown", function(event){
+            if (event.keyCode === 66) {
+                SetOpacity('bTilePressed', 100);
+                SetOpacity('bTile', 0);
+                if (position3 >= 550 && position3 <= 750) {
+                    position3 = -500;
+                    tile3.style.top = position3;
+                    add_score();
+                } else if (position3_2 >= 550 && position3_2 <= 750) {
+                    position3_2 = -500;
+                    tile3_2.style.top = position3_2;
+                    add_score()
+                } else if (position3_3 >= 550 && position3_3 <= 750) {
+                    position3_3 = -500;
+                    tile3_3.style.top = position3_3;
+                    add_score()
+                } else {
+                    perfect_tiles = 0;
+                    ScoreMultiplier.textContent = 1;
+                    if (keydowncheck3 === 0){
+                        misses++;
+                        Misses.textContent = misses;
+                        keydowncheck3 = 1;
+                    }
+                }
+            }
+        });
+
+        document.addEventListener("keyup", function(event){
+            if (event.keyCode === 66) {
+                SetOpacity('bTilePressed', 0);
+                SetOpacity('bTile', 100);
+                keydowncheck3 = 0;
+            }
+        }); 
+
+        document.addEventListener("keydown", function(event){
+            if (event.keyCode === 78) {
+                SetOpacity('nTilePressed', 100);
+                SetOpacity('nTile', 0);
+                if (position4 >= 550 && position4 <= 750) {
+                    position4 = -500;
+                    tile4.style.top = position4;
+                    add_score();
+                } else if (position4_2 >= 550 && position4_2 <= 750) {
+                    position4_2 = -500;
+                    tile4_2.style.top = position4_2;
+                    add_score()
+                } else if (position4_3 >= 550 && position4_3 <= 750) {
+                    position4_3 = -500;
+                    tile4_3.style.top = position4_3;
+                    add_score()
+                } else {
+                    perfect_tiles = 0;
+                    ScoreMultiplier.textContent = 1;
+                    if (keydowncheck4 === 0){
+                        misses++;
+                        Misses.textContent = misses;
+                        keydowncheck4 = 1;
+                    }
+                }
+            }
+        });
+
+        document.addEventListener("keyup", function(event){
+            if (event.keyCode === 78) {
+                SetOpacity('nTilePressed', 0);
+                SetOpacity('nTile', 100);
+                keydowncheck4 = 0;
+            }
+        }); 
+
+
+        function getRandomInt(min, max) {
+            return Math.floor(Math.random() * max + min);
+        }
+    }
+
+    function SetOpacity( imageid, opacity ) {
+        var s= document.getElementById(imageid).style;
+        s.opacity = ( opacity / 100 );
+        s.filter = 'alpha(opacity=' + opacity + ')';
+    }
+
+</script>
