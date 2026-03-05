@@ -18,12 +18,26 @@
                 <h1>Flag</h1>
             </div>
         </div>
-        <div id="Quiz" class="quiz hide">
-            <div class="question hide">
+        <div id="Quiz" class="hide">
+            <div class="question">
                 <div style="width: 250px; height: 250px;">
-                    <img id="QuestionImage" src="" alt="" style="max-width: 250px; max-height: 250px;">
+                    <img id="QuestionImage" src="../Images/flags/ad.png" alt="" style="max-width: 250px; max-height: 250px;display:flex; justify-content: center; align-items: center;">
                 </div>
-                <h1 id="QuestionText">Hello</h1>
+                <h1 id="QuestionText" style="max-width: 400;">Hello</h1>
+            </div>
+            <div class="answers">
+                <div class="answer" onclick="ChooseAnswer(1)">
+                    <p>A) <p id="Answer1">Andorra</p></p>
+                </div>
+                <div class="answer" onclick="ChooseAnswer(2)">
+                    <p>B) <p id="Answer2">Morroco</p></p>
+                </div>
+                <div class="answer" onclick="ChooseAnswer(3)">
+                    <p>C) <p id="Answer3">Italy</p></p>
+                </div>
+                <div class="answer" onclick="ChooseAnswer(4)">
+                    <p>D) <p id="Answer4">Equador</p></p>
+                </div>
             </div>
         </div>
     </div>
@@ -43,12 +57,12 @@
         if (quiz.classList.contains("hide"))
         {
             console.log("Has hide")
-            quiz.classList.remove("hide")
+            quiz.classList.replace("hide", "quiz")
         }
         else
         {
             console.log("Doesnt have hide")
-            quiz.classList.toggle("hide")
+            quiz.classList.replace("quiz", "hide")
         }
     }
 </script>
