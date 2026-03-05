@@ -9,7 +9,47 @@
 <body>
     <div class="header">
         <img src="../Images/Home.png" style="width: 100px; height: 100px;" alt="">
-        <h1><a href="./quiz.html">Quiz</a></h1>
+        <a href="./quiz.html">Quiz</a>
+        <button id="DarkMode" class="DarkModeButton">Dark Mode</button>
+    </div>
+    <div class="body">
+        <div id="Themes" class="themes">
+            <div class="box" style="background-color: red;" onclick="StartQuiz('Flag')">
+                <h1>Flag</h1>
+            </div>
+        </div>
+        <div id="Quiz" class="quiz hide">
+            <div class="question hide">
+                <div style="width: 250px; height: 250px;">
+                    <img id="QuestionImage" src="" alt="" style="max-width: 250px; max-height: 250px;">
+                </div>
+                <h1 id="QuestionText">Hello</h1>
+            </div>
+        </div>
     </div>
 </body>
+<script>
+    const themes = document.getElementById("Themes")
+    const quiz = document.getElementById("Quiz")
+
+    function StartQuiz(quizType){
+        themes.classList.toggle("hide")
+        if (quizType == "Flag"){
+            FlagQuiz()
+        }
+    }
+
+    function FlagQuiz(){
+        if (quiz.classList.contains("hide"))
+        {
+            console.log("Has hide")
+            quiz.classList.remove("hide")
+        }
+        else
+        {
+            console.log("Doesnt have hide")
+            quiz.classList.toggle("hide")
+        }
+    }
+</script>
 </html>

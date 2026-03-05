@@ -1,3 +1,54 @@
 .header {
     display: flex;
+    justify-content: space-between;
+    border-bottom: 2px green solid;
+    background-color: purple;
+    font-size: 60px;
+}
+
+.header a {
+    margin-top: 10px;
+    color: green;
+    text-decoration: none;
+}
+
+.DarkModeButton {
+    border-radius: 5px;
+    color: black;
+    border-color: lightgray;
+    background-color: lightgrey; 
+    width: 100px; 
+    height: 50px; 
+    margin-top: 25px;
+}
+
+.body {
+    margin-left:200px;
+    margin-right: 200px;
+    padding-top: 100px;
+    display: grid;
+}
+
+.box {
+    width: 200px;
+    height: 200px;
+    border-radius: 15px;
+    padding: 10px;
+    text-align: center;
+}
+
+.box:hover {
+    width: 210px;
+    height: 210px;
+    cursor: pointer;
+    box-shadow: 10px 10px rgba(0, 0, 0, 0.2);
+
+}
+
+.hide {
+    display: none;
+}
+
+.quiz {
+    
 }
