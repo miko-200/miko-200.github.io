@@ -73,13 +73,13 @@
         let Answer3Text = document.getElementById("Answer3")
         let Answer4Text = document.getElementById("Answer4")
 
+        flagsLength = 207;
+
         fetch("../Jsons/flags.json")
         .then(r => r.json())
         .then(flags => {
             console.log(flags.length);
         });
-
-
 
     }
 </script>
