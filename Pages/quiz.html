@@ -20,23 +20,23 @@
         </div>
         <div id="Quiz" class="hide">
             <div class="question">
-                <div style="width: 250px; height: 250px;">
-                    <img id="QuestionImage" src="../Images/flags/ad.png" alt="" style="max-width: 250px; max-height: 250px;display:flex; justify-content: center; align-items: center;">
+                <div style="width: 350px; height: 350px; display:contents; justify-content: center;">
+                    <img id="QuestionImage" src="../Images/flags/ad.png" alt="" style="max-width: 350px; max-height: 350px;">
                 </div>
                 <h1 id="QuestionText" style="max-width: 400;">Hello</h1>
             </div>
             <div class="answers">
-                <div class="answer" onclick="ChooseAnswer(1)">
-                    <p>A) <p id="Answer1">Andorra</p></p>
+                <div class="answer-box answer-box-color-normal" onclick="ChooseAnswer(1)">
+                    <p id="Answer1">Andorra</p>
                 </div>
-                <div class="answer" onclick="ChooseAnswer(2)">
-                    <p>B) <p id="Answer2">Morroco</p></p>
+                <div class="answer-box answer-box-color-normal" onclick="ChooseAnswer(2)">
+                    <p id="Answer2">Morroco</p>
                 </div>
-                <div class="answer" onclick="ChooseAnswer(3)">
-                    <p>C) <p id="Answer3">Italy</p></p>
+                <div class="answer-box answer-box-color-normal" onclick="ChooseAnswer(3)">
+                    <p id="Answer3">Italy</p>
                 </div>
-                <div class="answer" onclick="ChooseAnswer(4)">
-                    <p>D) <p id="Answer4">Equador</p></p>
+                <div class="answer-box answer-box-color-normal" onclick="ChooseAnswer(4)">
+                    <p id="Answer4">Equador</p>
                 </div>
             </div>
         </div>
@@ -51,9 +51,7 @@
         if (quizType == "Flag"){
             FlagQuiz()
         }
-    }
 
-    function FlagQuiz(){
         if (quiz.classList.contains("hide"))
         {
             console.log("Has hide")
@@ -64,6 +62,25 @@
             console.log("Doesnt have hide")
             quiz.classList.replace("quiz", "hide")
         }
+    }
+    
+    const flagQuizQuestions = ["What is this Flag"]
+
+    function FlagQuiz(){
+        let QuestionText = document.getElementById("QuestionText")
+        let Answer1Text = document.getElementById("Answer1")
+        let Answer2Text = document.getElementById("Answer2")
+        let Answer3Text = document.getElementById("Answer3")
+        let Answer4Text = document.getElementById("Answer4")
+
+        fetch("../Jsons/flags.json")
+        .then(r => r.json())
+        .then(flags => {
+            console.log(flags.length);
+        });
+
+
+
     }
 </script>
 </html>
