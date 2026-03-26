@@ -63,24 +63,149 @@
             quiz.classList.replace("quiz", "hide")
         }
     }
-    
-    const flagQuizQuestions = ["What is this Flag"]
+
+
+    const QuestionText = document.getElementById("QuestionText")
+    const QuestionImage = document.getElementById("QuestionImage")
+
+    const Answer1Text = document.getElementById("Answer1")
+    const Answer2Text = document.getElementById("Answer2")
+    const Answer3Text = document.getElementById("Answer3")
+    const Answer4Text = document.getElementById("Answer4")
+
+
+    let flagsLength = 0;
+
+    async function loadFlagsLength() {
+        const response = await fetch("../Jsons/flags.json");
+        const flags = await response.json();
+        flagsLength = flags.length;
+        console.log(flagsLength)
+    }
+
+    document.addEventListener("DOMContentLoaded", async () => {
+        await loadFlagsLength();
+        console.log(flagsLength)
+    });
 
     function FlagQuiz(){
-        let QuestionText = document.getElementById("QuestionText")
-        let Answer1Text = document.getElementById("Answer1")
-        let Answer2Text = document.getElementById("Answer2")
-        let Answer3Text = document.getElementById("Answer3")
-        let Answer4Text = document.getElementById("Answer4")
 
-        flagsLength = 207;
+        const flagQuizQuestions = ["What is this flag?"]
+        QuestionText.textContent = flagQuizQuestions;
+        
+        const alreadyUsedFlags = []; 
+        console.log(alreadyUsedFlags)
 
-        fetch("../Jsons/flags.json")
-        .then(r => r.json())
-        .then(flags => {
-            console.log(flags.length);
-        });
+        for (let i = 0; i < 1; i++){
+            console.log("in the main for loop")
+            let correctFlagNum = 0;
+            while (true){
+                correctFlagNum = Math.floor(Math.random() * flagsLength)+1
+                if (alreadyUsedFlags != undefined || alreadyUsedFlags != null){
+                    let isInArray = false;
+                    for (let j = 0; j < alreadyUsedFlags;j++){
+                        if (correctFlagNum == alreadyUsedFlags[j]){
+                            isInArray = true;
+                            break;
+                        }
+                    }
 
+                    if (!isInArray){
+                        console.log("Correct flag num: " + correctFlagNum);
+                        alreadyUsedFlags[alreadyUsedFlags.length] = correctFlagNum;
+                        break;
+                    }
+
+                }
+                else{
+                    console.log("Correct flag num: " + correctFlagNum);
+                    alreadyUsedFlags[alreadyUsedFlags.length] = correctFlagNum;
+                    break;
+                }
+            }
+
+            const incorrectFlagNums = [];
+
+            for (let j = 0; j < 3; j++){
+                while (true){
+                    let incFlagNum = Math.floor(Math.random() * flagsLength)+1;
+                    if (incFlagNum != correctFlagNum){
+                        if (incorrectFlagNums != undefined || incorrectFlagNums != null){
+                            let isInArray = false;
+                            for (let k = 0; j < incorrectFlagNums.length;k++){
+                                if (incFlagNum == incorrectFlagNums[j]){
+                                    isInArray = true;
+                                    break;
+                                }
+                            }
+
+                            if (isInArray){
+                                continue;
+                            }
+                        }
+                        incorrectFlagNums[incorrectFlagNums.length] = incFlagNum;
+                        console.log("Incorrect flag num: " + incFlagNum);
+                        console.log("Incorrect flags: " + incorrectFlagNums)
+                        break;
+                    }
+                    
+
+                }
+            }
+
+            console.log("Already used flags: " + alreadyUsedFlags)
+            console.log("Incorrect flags: " + incorrectFlagNums)
+
+            const answers = [];
+
+            answers[0] = correctFlagNum;
+            answers[1] = incorrectFlagNums[0];
+            answers[2] = incorrectFlagNums[1];
+            answers[3] = incorrectFlagNums[2];
+
+            console.log("Answers before shuffle: " + answers);
+            ShuffleArray(answers)
+            console.log("Answers after shuffle: " + answers);
+
+        }
+
+
+    }
+
+    function ShuffleArray(array){
+        const arrayCopy = []
+        for (let i = 0; i < array.length; i++){
+            arrayCopy[i] = array[i]
+        }
+
+        for (let i = 0; i < 5; i++){
+            const usedIndex = []
+            for (let j = 0; j < array.length; j++){
+                const rnum = Math.floor(Math.random() * array.length);
+
+                let isInArray = false;
+                for (let k = 0; k < usedIndex.length;k++){
+                    if (rnum = usedIndex[k]){
+                        isInArray = true;
+                        break;
+                    }
+                }
+
+                if (isInArray){
+                    j--;
+                    continue;
+                }
+
+                array[j] = arrayCopy[rnum];
+                usedIndex[j] = rnum;
+            }
+            console.log("Shuffle " + i + ":" + array)
+            console.log(usedIndex)
+        }
+    }
+
+    function ChooseAnswer(answer){
+        console.log("Chosen answer: " + answer)
     }
 </script>
 </html>
